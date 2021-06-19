@@ -4,27 +4,30 @@
     font-family: sans-serif;
 }
 ::-webkit-input-placeholder{
-    color: black;
+    color: rgba(255, 255, 255, 0.631);
 }
 .container{
     width: 100vw;
     height: 100vh;
-    background-color: green;
+    background: linear-gradient(to top,#313131 , #232323);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .container .form-login{
+    border-radius: 10px;
     width: 90vw;
     height: auto;
-    background-color: salmon;
+    background-color: #08A965;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding: 10px 0 30px;
 }
 .container h1{
-    margin: 50px 0 20px;
+    margin: 30px 20px;
+    color: #fff;
 }
 .container #input{
     position: relative;
@@ -35,13 +38,16 @@
     width: 100%;
 }
 .container input{
+    font-size: 1.2em;
+    letter-spacing: 1px;
+    color: #fff;
     width: 80%;
     height: 30px;
     border: none;
     outline: none;
     margin: 2px 0; 
     background-color: transparent;
-    border-bottom: 1px solid blue;
+    border-bottom: 2px solid #fff;
 }
 .container input[Type="checkbox"]{
     display: none;
@@ -51,16 +57,24 @@
     position: absolute;
     bottom: 15%;
     right: 11%;
+    cursor: pointer;
 }
 .container button{
-    width: 130px;
+    width: 80%;
     padding: 10px 2px;
-    margin: 20px 0 50px;
+    margin: 15px 0 50px;
     border: none;
     outline: none;
     cursor: pointer;
     text-transform: uppercase;  
+    transition: 0.4s;
+    background-color: rgb(226, 223, 223);
+}
+.container button:hover{
+    background-color: #2b2b2b;
+    color: rgb(202, 202, 202);
 } 
+
 @media screen and (min-width: 768px){
     .container .form-login{
         max-width: 40vw;
