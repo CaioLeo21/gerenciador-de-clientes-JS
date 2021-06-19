@@ -33,7 +33,9 @@ span {
 .bar i{
     font-size: 20px;
     padding: 15px;
-    background-color: #0b8250;
+    background-color: #0f9e63;
     border-radius: 50px;
     color: #fff;
+    box-shadow: 3px 3px 5px #085937, -4px -1px 5px #16d082;
+
 }
