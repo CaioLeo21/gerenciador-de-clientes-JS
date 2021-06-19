@@ -6,6 +6,9 @@
 ::-webkit-input-placeholder{
     color: rgba(255, 255, 255, 0.631);
 }
+::selection{
+    color: #232323;
+}
 .container{
     width: 100vw;
     height: 100vh;
@@ -26,6 +29,7 @@
     padding: 10px 0 30px;
 }
 .container h1{
+    font-family: 'Poppins', sans-serif;
     margin: 30px 20px;
     color: #fff;
 }
@@ -38,8 +42,7 @@
     width: 100%;
 }
 .container input{
-    font-size: 1.2em;
-    letter-spacing: 1px;
+    font-size: 1em;
     color: #fff;
     width: 80%;
     height: 30px;
@@ -60,6 +63,7 @@
     cursor: pointer;
 }
 .container button{
+    font-family: 'Poppins', sans-serif;
     width: 80%;
     padding: 10px 2px;
     margin: 15px 0 50px;
