@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/login.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <title> Formulário de Login </title>
 </head>
 <body>
@@ -14,12 +15,28 @@
                     <h1>Login</h1>
                     <div id="input">
                         <input type="text" placeholder="Usuário" maxlength="40">
-                        <input type="password" placeholder="Senha" maxlength="15">
+                        <input type="password" id="password" placeholder="Senha" maxlength="15">
+                        <input type="checkbox" id="check">
+                        <label for="check" onclick="eyeButton()">
+                            <i class="fas fa-eye" id="eye-icon"></i>
+                        </label>
                     </div>
                     <button type="submit"> Entrar </button>
                 </form>
-          
         </div>
     </main>
+    <script>
+        function eyeButton(){       
+            var password = document.getElementById("password");
+            var icon = document.getElementById("eye-icon");
+            if(password.type == "password"){
+                password.type = "text";
+                    icon.setAttribute("class", "fas fa-eye-slash");
+            }else{
+                password.type = "password";
+                    icon.setAttribute("class", "fas fa-eye");
+            }
+        }
+    </script>
 </body>
 </html>
