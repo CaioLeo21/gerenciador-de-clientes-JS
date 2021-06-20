@@ -11,9 +11,79 @@
 body{
     background-color: #232323;
 }
+input:-webkit-autofill {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color:#fff !important;
+}
+::-webkit-input-placeholder{
+    color: rgba(255, 255, 255, 0.631);
+}
 ::selection{
     color: #232323;
 }
+/* FORMULARIO */
+.container{
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to top,#313131 , #232323);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container .form-cadastro{
+    border-radius: 10px;
+    width: 90vw;
+    height: auto;
+    background-color: #08A965;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px 0 30px;
+    margin-bottom: 50px;
+}
+.container h1{
+    font-family: 'Poppins', sans-serif;
+    margin: 30px 20px;
+    color: #fff;
+}
+.container #input{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+.container input{
+    font-size: 1em;
+    color: #fff;
+    width: 80%;
+    height: 30px;
+    border: none;
+    outline: none;
+    margin: 2px 0; 
+    background-color: transparent;
+    border-bottom: 2px solid #fff;
+}
+.container button{
+    font-family: 'Poppins', sans-serif;
+    width: 80%;
+    padding: 10px 2px;
+    margin: 15px 0 50px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    text-transform: uppercase;  
+    transition: 0.4s;
+    background-color: rgb(226, 223, 223);
+}
+.container button:hover{
+    background-color: #2b2b2b;
+    color: rgb(202, 202, 202);
+} 
+/* Barra de navegação */
+
 .bar{
     border-top: 5px solid #05ff97;
     width: 100%;
@@ -25,16 +95,7 @@ body{
     justify-content: space-around;
     align-items: center;
 }
-span {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%);
-    color: rgba(255, 255, 255, 0.302);
-    font-family: 'Poppins', sans-serif;
-    text-transform: uppercase;
-    font-size: 1.1em;
-}
+
 .bar i{
     font-size: 20px;
     padding: 15px;
@@ -42,4 +103,9 @@ span {
     border-radius: 50px;
     color: #fff;
     box-shadow: 3px 3px 5px #085937, -4px -1px 5px #16d082;
+}
+@media screen and (min-width: 768px){
+    .container .form-cadastro{
+        max-width: 50vw;
+    }
 }
