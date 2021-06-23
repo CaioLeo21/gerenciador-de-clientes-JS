@@ -38,3 +38,6 @@ span {
     color: #fff;
     box-shadow: 3px 3px 5px #085937, -4px -1px 5px #16d082;
 }
+.bar a:nth-child(3) > i{
+    color: #232323 !important;
+}

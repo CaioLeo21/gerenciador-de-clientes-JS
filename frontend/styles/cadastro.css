@@ -24,7 +24,7 @@ input:-webkit-autofill {
 /* FORMULARIO */
 .container{
     margin: 50px 0;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     background: linear-gradient(to top,#313131 , #232323);
     display: flex;
@@ -106,7 +106,12 @@ input:-webkit-autofill {
     justify-content: space-around;
     align-items: center;
 }
-
+.bar a:nth-child(2) > i{
+    color: #232323 !important;
+}
+/* .bar a:visited >i{
+    color: red;
+} */
 .bar i{
     font-size: 20px;
     padding: 15px;
