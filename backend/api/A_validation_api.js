@@ -2,7 +2,7 @@ module.exports = app => {
 
     const bcrypt = require('bcrypt')
 
-    const validation = async (req, res) => {
+    const validation_api = async (req, res) => {
         try {
 
             const body = req.body
@@ -12,12 +12,8 @@ module.exports = app => {
             const password = bcrypt.compareSync(body.senha, user.senha)
 
             if(user.username == body.username && password){
-                console.log("Validado")
-
-                res.status(200).send({ message: "Usuário validado!", data: user })             
-            }
-            console.log("Não validado")
-            
+                return res.status(200).send({ message: "Usuário validado!" })             
+            }            
             return res.status(400).send({ message: "Usuário não validado!" })
 
         } catch (error) {
@@ -34,5 +30,5 @@ module.exports = app => {
     //     return id.id_user 
     // }
 
-    return { validation }
+    return { validation_api }
 }
