@@ -2,7 +2,7 @@ module.exports = app => {
 
     //const return_id = app.api.A_validation_api.validation
 
-    const register = async (req, res) => {
+    const register_api = async (req, res) => {
         try {
 
             const body = req.body
@@ -20,5 +20,5 @@ module.exports = app => {
         }
     }
 
-    return { register }
+    return { register_api }
 }
