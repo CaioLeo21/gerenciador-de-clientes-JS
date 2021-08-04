@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/login.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!-- Favicon -->
     <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
     <!-- Font Awesome Icon -->
@@ -27,14 +28,14 @@
                             <i class="fas fa-eye" id="eye-icon"></i>
                         </label>
                     </div>
-                    <button type="submit"> Entrar </button>
+                    <button id="validationBtn" type="button" onclick="validation()" > Entrar </button>
                 </form>
         </div>
     </main>
     <script>
         function eyeButton(){       
-            var password = document.getElementById("password");
-            var icon = document.getElementById("eye-icon");
+            let password = document.getElementById("password");
+            let icon = document.getElementById("eye-icon");
             if(password.type == "password"){
                 password.type = "text";
                     icon.setAttribute("class", "fas fa-eye-slash");
@@ -42,6 +43,26 @@
                 password.type = "password";
                     icon.setAttribute("class", "fas fa-eye");
             }
+        }
+
+        async function validation() {
+
+            const password = document.getElementById("password").value
+            const user = document.getElementById("user").value
+
+            const body = { 
+                username: user,
+                senha: password
+            }
+
+            await axios.post('http://localhost:3000/v1/validation', body)
+            .then(res => {
+                if(res.status == 200){
+                    console.log("Usuário válido")
+                    window.location.href = "file:///C:/Users/caio/Documents/GitHub/gerenciador-de-clientes/frontend/home.html?"
+                }
+            })
+            .catch(err => console.log(err))
         }
     </script>
 </body>
