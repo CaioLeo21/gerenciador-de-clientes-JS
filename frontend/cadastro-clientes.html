@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/cadastro.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.min.js"></script>
     <!-- Favicon -->
     <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
     <!-- Font Awesome Icon -->
@@ -20,7 +23,7 @@
             <form class="form-cadastro" spellcheck="false" >
                 <h1> Cadastrar Cliente </h1>
                 <div id="input">
-                    <input type="text" id="user" placeholder="Usuário *" required>
+                    <input type="text" id="nome" placeholder="Nome *" required>
                     <input type="text" id="telefone" placeholder="Telefone *" required>
                     <input type="text" id="cpf" placeholder="CPF/CNPJ" >
                     <input type="text" id="rua" placeholder="Rua">
@@ -29,7 +32,7 @@
                     <span class="spn-complemento">Complemento:</span>
                     <textarea id="complemento" rows="5"></textarea>
                 </div>
-                <button type="submit"> Cadastrar </button>
+                <button type="button" onclick="register()"> Cadastrar </button>
             </form>
         </div>
         <div class="bar">
@@ -37,6 +40,52 @@
             <a href=""><i class="fas fa-user-plus"></i></a>
             <a href="listagem-clientes.html"><i class="fas fa-list-alt"></i></a>
         </div>
-</main>
+    </main>
+    <script>
+        $(document).ready(() => {
+            $('#telefone').mask("(00) 00000-0000")
+            $('#cpf').mask("000.000.000-00")
+        })
+
+        async function register(){
+            const nome = document.getElementById("nome").value
+            const telefone = document.getElementById("telefone").value
+            const cpf = document.getElementById("cpf").value
+            const rua = document.getElementById("rua").value
+            const bairro = document.getElementById("bairro").value
+            const numero = document.getElementById("numero").value
+            const complemento = document.getElementById("complemento").value
+
+            const body = { 
+                nome: nome,
+                telefone: telefone,
+                cpf: cpf,
+                rua: rua,
+                bairro: bairro,
+                numero_casa: numero,
+                complemento: complemento,
+                id_user: 1
+            }
+
+            await axios.post('http://localhost:3000/v1/register', body)
+            .then(res => {
+                if(res.status == 201){
+                    console.log("Usuário cadastrado!")
+                }
+                cleanInput()
+            })
+            .catch(err => console.log(err))
+        }
+
+        function cleanInput(){
+            document.getElementById("nome").value=""
+            document.getElementById("telefone").value=""
+            document.getElementById("cpf").value=""
+            document.getElementById("rua").value=""
+            document.getElementById("bairro").value=""
+            document.getElementById("numero").value=""
+            document.getElementById("complemento").value=""
+        }
+    </script>
 </body>
 </html>
